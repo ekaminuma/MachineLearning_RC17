@@ -1,8 +1,15 @@
 # Machine Learning ReadingCircle
 Hands-on機械学習輪読会のログ 
 
-
 ```
+初心者向け機械学習輪読演習を行います(NIG遺伝研大量遺伝　神沼)
+
+    ＊ノートパソコン必携
+    ＊演習形式
+    ＊月一回月曜日11:00-12:00 NIG-W403
+　   ＊python with jupyter notebook (anaconda installed). 
+
+
 ==== 0. Book for Machine Learning ReadingCircle  ===========================
 
 BOOK TITLE: "Hands-On Machine Learning with Scikit-Learn and TensorFlow"
