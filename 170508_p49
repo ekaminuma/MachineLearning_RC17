@@ -1,0 +1,353 @@
+```
+p.49
+
+Take a quick look at the data structure (p.49)
+
+
+Highlights
+
+    DataFrame
+    head()
+    info()
+    attributes, instances
+    value_counts()
+    count, mean, max 
+    hist()
+
+
+--------------------------------------------------------------------------------------------
+＜housingデータをダウンロード＞
+Two files were generated.
+
+./datasets/housing/housing.csv
+./datasets/housing/housing.tgz
+
+-------------------------------------------------------------------------------------------------
+In [6]:
+
+import os
+import tarfile
+from six.moves import urllib
+DOWNLOAD_ROOT = "https://raw.githubusercontent.com/ageron/handson-ml/master/"
+HOUSING_PATH = "datasets/housing"
+HOUSING_URL = DOWNLOAD_ROOT + HOUSING_PATH + "/housing.tgz"
+def fetch_housing_data(housing_url=HOUSING_URL, hpath=HOUSING_PATH):
+    os.makedirs(hpath, exist_ok=True)
+    tgz_path = os.path.join(hpath, "housing.tgz")
+    urllib.request.urlretrieve(housing_url, tgz_path)
+    housing_tgz = tarfile.open(tgz_path)
+    housing_tgz.extractall(path=hpath)
+    housing_tgz.close()
+    
+
+In [7]:
+
+fetch_housing_data();
+
+In [8]:
+
+import pandas as pd
+def load_housing_data(housing_path=HOUSING_PATH):
+    csv_path = os.path.join(housing_path, "housing.csv")
+    return pd.read_csv(csv_path)
+
+In [9]:
+
+housing=load_housing_data()
+housing.head()
+
+Out[9]:
+
+	longitude	latitude	housing_median_age	total_rooms	total_bedrooms	population	households	median_income	median_house_value	ocean_proximity
+0	-122.23	37.88	41.0	880.0	129.0	322.0	126.0	8.3252	452600.0	NEAR BAY
+1	-122.22	37.86	21.0	7099.0	1106.0	2401.0	1138.0	8.3014	358500.0	NEAR BAY
+2	-122.24	37.85	52.0	1467.0	190.0	496.0	177.0	7.2574	352100.0	NEAR BAY
+3	-122.25	37.85	52.0	1274.0	235.0	558.0	219.0	5.6431	341300.0	NEAR BAY
+4	-122.25	37.85	52.0	1627.0	280.0	565.0	259.0	3.8462	342200.0	NEAR BAY
+In [10]:
+
+housing.info()
+
+<class 'pandas.core.frame.DataFrame'>
+RangeIndex: 20640 entries, 0 to 20639
+Data columns (total 10 columns):
+longitude             20640 non-null float64
+latitude              20640 non-null float64
+housing_median_age    20640 non-null float64
+total_rooms           20640 non-null float64
+total_bedrooms        20433 non-null float64
+population            20640 non-null float64
+households            20640 non-null float64
+median_income         20640 non-null float64
+median_house_value    20640 non-null float64
+ocean_proximity       20640 non-null object
+dtypes: float64(9), object(1)
+memory usage: 1.6+ MB
+
+In [11]:
+
+housing["ocean_proximity"].value_counts()
+
+Out[11]:
+
+<1H OCEAN     9136
+INLAND        6551
+NEAR OCEAN    2658
+NEAR BAY      2290
+ISLAND           5
+Name: ocean_proximity, dtype: int64
+
+In [11]:
+
+housing.describe()
+
+Out[11]:
+
+	longitude	latitude	housing_median_age	total_rooms	total_bedrooms	population	households	median_income	median_house_value
+count	20640.000000	20640.000000	20640.000000	20640.000000	20433.000000	20640.000000	20640.000000	20640.000000	20640.000000
+mean	-119.569704	35.631861	28.639486	2635.763081	537.870553	1425.476744	499.539680	3.870671	206855.816909
+std	2.003532	2.135952	12.585558	2181.615252	421.385070	1132.462122	382.329753	1.899822	115395.615874
+min	-124.350000	32.540000	1.000000	2.000000	1.000000	3.000000	1.000000	0.499900	14999.000000
+25%	-121.800000	33.930000	18.000000	1447.750000	296.000000	787.000000	280.000000	2.563400	119600.000000
+50%	-118.490000	34.260000	29.000000	2127.000000	435.000000	1166.000000	409.000000	3.534800	179700.000000
+75%	-118.010000	37.710000	37.000000	3148.000000	647.000000	1725.000000	605.000000	4.743250	264725.000000
+max	-114.310000	41.950000	52.000000	39320.000000	6445.000000	35682.000000	6082.000000	15.000100	500001.000000
+In [13]:
+
+%matplotlib inline
+
+In [16]:
+
+import matplotlib.pyplot as plt
+housing.hist(bins=50, figsize=(20,15))
+plt.show()
+
+ 
+*図のメモリは自動スケーリングされるので、値を信じてはいけない。
+
+ex. median_income 
+
+*データによっては、分布を後で正規分布形状に変換する。
+
+
+Create a test set (p.53)
+
+Highlights
+
+    data snooping bias
+    np.random.seed()
+    np.random.permutation()
+    train_test_split vs split_train_test
+    np.ceil
+    StratifiedShuffleSplit
+    set.drop 
+
+
+
+import os
+import pandas as pd
+HOUSING_PATH = "datasets/housing"
+def load_housing_data(housing_path=HOUSING_PATH):
+    csv_path = os.path.join(housing_path, "housing.csv")
+    return pd.read_csv(csv_path)
+
+In [5]:
+
+housing=load_housing_data()
+
+In [6]:
+
+import numpy as np
+def split_train_test(data, test_ratio):
+    shuffled_indices = np.random.permutation(len(data))
+    test_set_size = int(len(data) * test_ratio)
+    test_indices = shuffled_indices[:test_set_size]
+    train_indices = shuffled_indices[test_set_size:]
+    return data.iloc[train_indices], data.iloc[test_indices]
+
+In [7]:
+
+train_set, test_set = split_train_test(housing, 0.2)
+
+test set=random 20% sampling
+
+np.random.seed(42)で毎回乱数を変更する。
+
+In [8]:
+
+print(len(train_set), "train +", len(test_set), "test")
+
+16512 train + 4128 test
+
+In [9]:
+
+長さが変わると対応できないので、識別子のHashを使う。
+新規データが来たときに対応可能。
+
+import hashlib
+
+def test_set_check(identifier, test_ratio, hash):
+    return hash(np.int64(identifier)).digest()[-1] < 256 * test_ratio
+
+def split_train_test_by_id(data, test_ratio, id_column, hash=hashlib.md5):
+    ids = data[id_column]
+    in_test_set = ids.apply(lambda id_: test_set_check(id_, test_ratio, hash))
+    return data.loc[~in_test_set], data.loc[in_test_set]
+
+In [10]:
+
+housing_with_id = housing.reset_index() # adds an `index` column
+train_set, test_set = split_train_test_by_id(housing_with_id, 0.2, "index")
+
+新規データは末尾に追加する必要有。もとのデータは残す(index変更してはいけない) 
+
+In [11]:
+
+print(len(train_set), "train +", len(test_set), "test")
+
+16362 train + 4278 test
+
+In [12]:
+
+番号がデータ更新で変わる場合は、変化しない値（緯度経度）を、識別子にする。
+＃しかし、小数点２桁なのでデータが丸められている
+
+housing_with_id["id"] = housing["longitude"] * 1000 + housing["latitude"]
+train_set, test_set = split_train_test_by_id(housing_with_id, 0.2, "id")
+
+In [13]:
+
+print(len(train_set), "train +", len(test_set), "test")
+
+16267 train + 4373 test
+
+In [15]:
+
+＊sklearnだと分割関数が入っている。
+
+＊複数のデータフレームにも対応 
+
+from sklearn.model_selection import train_test_split
+train_set, test_set = train_test_split(housing, test_size=0.2, random_state=42)　シード指定In [16]:
+
+print(len(train_set), "train +", len(test_set), "test")
+
+16512 train + 4128 test
+
+サンプリングバイアスに気を付ける。
+１０００人 →stratified sampling
+
+
+＋次は収入中央値がテストセットにきれいに入っているか確認していく
+
+In [64]:
+
+階級カテゴリへの変換
+
+housing["income_cat"] = np.ceil(housing["median_income"] / 1.5)
+housing["income_err"] = housing["median_income"] /1.5 - np.ceil(housing["median_income"] / 1.5)
+
+In [19]:
+
+%matplotlib inline
+import matplotlib.pyplot as plt
+housing["income_cat"].hist()
+
+Out[19]:
+
+<matplotlib.axes._subplots.AxesSubplot at 0x14262b86b00>
+
+
+In [68]:
+
+housing["income_cat"].value_counts() / len(housing)
+
+Out[68]:
+
+3.0     0.350581
+2.0     0.318847
+4.0     0.176308
+5.0     0.068944
+1.0     0.039826
+6.0     0.025775
+7.0     0.009157
+8.0     0.005087
+9.0     0.002422
+11.0    0.002374
+10.0    0.000678
+Name: income_cat, dtype: float64
+
+In [20]:
+
+housing["income_cat"].where(housing["income_cat"] < 5, 5.0, inplace=True)
+
+In [71]:
+
+housing["income_cat"].hist()
+
+Out[71]:
+
+＜描画横軸の位置がずれているので注意＞
+
+
+
+In [22]:
+
+sklearnの階級化サンプリング用の関数
+＊n_splits=5 < cross validation用の別セットを生成
+
+from sklearn.model_selection import StratifiedShuffleSplit
+
+split = StratifiedShuffleSplit(n_splits=1, test_size=0.2, random_state=42)
+for train_index, test_index in split.split(housing, housing["income_cat"]):
+    strat_train_set = housing.loc[train_index]
+    strat_test_set = housing.loc[test_index]
+
+In [23]:
+
+print(len(train_set), "train +", len(test_set), "test")
+
+16512 train + 4128 test
+
+In [27]:
+
+len(train_set)+len(test_set)
+
+len(housing)
+
+Out[27]:
+
+20640
+
+In [62]:
+
+ housing["income_cat"].head(10)
+
+Out[62]:
+
+0    5.0
+1    5.0
+2    5.0
+3    4.0
+4    3.0
+5    3.0
+6    3.0
+7    3.0
+8    2.0
+9    3.0
+Name: income_cat, dtype: float64
+
+In [28]:
+
+housing["income_cat"].value_counts() / len(housing)
+
+Out[28]:
+
+3.0    0.350581
+2.0    0.318847
+4.0    0.176308
+5.0    0.114438
+1.0    0.039826
+Name: income_cat, dtype: float64
+
+```
