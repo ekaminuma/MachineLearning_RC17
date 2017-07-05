@@ -1,0 +1,312 @@
+```
+
+Please write your contents for 17/1/30.
+
+Hands-On Machine Learning with Scikit-Learn and TensorFlow
+Aurélien Géron
+
+
+Preface
+
+
+pp.xiii
+The Machine Learning tsunami
+
+In 2006, Geoffrey Hinton et al. published a paper1 showing how to train a deep neural network
+1 Available on Hinton’s home page at http://www.cs.toronto.edu/~hinton/.
+
+Machine Learning in your projects
+
+
+3 Find many more examples at https://www.kaggle.com/wiki/DataScienceUseCases.
+
+事例(Healthcare,Lifesciences,Agriculture)
+pp.xiv
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Healthcare
+
+    Claims review prioritization クレーム審査の優先順位付け
+        payers picking which claims should be reviewed by manual auditors手動請求者が審査する必要がある請求者を選ぶ支払人
+
+    Medicare/medicaid fraud メディケア/メディケイド詐欺
+        Tackled at the claims processors, EDS is the biggest & uses proprietary tech
+        請求プロセッサーに取り組むEDSは最大のもので、独自の技術を使用しています
+
+    Medical resources allocation 医療資源配分
+        Hospital operations management 病院運営管理
+        Optimize/predict operating theatre & bed occupancy based on initial patient visits最初の患者の訪問に基づいて手術場とベッド占有率を最適化/予測する
+
+    Alerting and diagnostics from real-time patient data リアルタイムの患者データからの警告および診断
+        Embedded devices (productized algos) 埋め込みデバイス（製品化）
+        Exogenous data from devices to create diagnostic reports for doctors医師のための診断レポート作成デバイスからの外因性データ
+
+    Prescription compliance　処方のコンプライアンス
+        Predicting who won't comply with their prescriptions　処方箋に従わない者を予測する
+
+    Physician attrition　医師の麻痺
+        Hospitals want to retain Drs who have admitting privileges in multiple hospitals　病院は複数の病院で特権を認めているDrsを保持したい
+
+    Survival analysis　生存分析
+        Analyse survival statistics for different patient attributes (age, blood type, gender, etc) and treatments　
+        異なる患者属性（年齢、血液型、性別など）および治療法の生存統計を分析
+
+    Medication (dosage) effectiveness　投薬（投薬量）の有効性
+        Analyse effects of admitting different types and dosage of medication for a diseas病気の薬剤種類と投与量を認める効果を分析
+
+    Readmission risk　再発リスク
+        Predict risk of re-admittance based on patient attributes, medical history, diagnose & treatment　
+        患者の属性、病歴、診断および治療に基づいて再アドミタンスのリスクを予測する
+
+
+Life Sciences
+
+    Identifying biomarkers for boxed warnings on marketed products　販売された製品のボックス化された警告のためのバイオマーカーの特定
+
+    Drug/chemical discovery & analysis　薬物/化学物質の発見と分析
+
+    Crunching study results　研究成果のクランチ
+
+    Identifying negative responses (monitor social networks for early problems with drugs)負反応同定（薬物による早期問題ソーシャルネットワークの監視）
+
+    Diagnostic test development　診断テスト開発
+        Hardware devices、Software
+
+    Diagnostic targeting (CRM)　診断ターゲティング（CRM）
+
+    Predicting drug demand in different geographies for different products　異なる製品の異なる地域における薬物需要の予測
+
+    Predicting prescription adherence with different approaches to reminding patients　異なるアプローチによる処方順守予測
+
+    Putative safety signals　推定安全信号
+
+    Social media marketing on competitors, patient perceptions, KOL feedback　競合他社のソーシャルメディアマーケティング、患者認識、KOLフィードバック
+
+    Image analysis or GCMS analysis in a high throughput manner　高スループットの画像解析やGCMS解析
+
+    Analysis of clinical outcomes to adapt clinical trial design　臨床試験設計に適応するための臨床結果の分析
+
+    COGS optimization　COGS最適化
+
+    Leveraging molecule database with metabolic stability data to elucidate new stable structures　安定構造を解明する代謝データを用いた分子データベース
+
+
+Agriculture
+
+    Yield management (taking sensor data on soil quality - common in newer John Deere et al truck models and determining what seed varieties, seed spacing to use etc　　収量管理（土壌の質に関するセンサーデータを取得する）
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+Objective and approach
+
+This book's goal is to give you the concepts, the intuitions and the tools you need to actually implement
+programs capable of learning from data.
+
+production-ready python frameworks
+
+    scikit-learn
+    tensorflow  (is a more complex library for distributed numerical computation using data flow graphs. multi-GPU servers.
+
+
+code example
+        https://github.com/ageron/handson-ml.
+
+
+p.xv
+Prerequisites
+python’s main scientific libraries, in particular NumPy, Pandas and Matplotlib.
+
+Roadmap
+
+1.
+
+• What is Machine Learning? 
+• The main steps in a typical Machine Learning project.
+• Learning by fitting a model to data.
+• Optimizing a cost function.
+• Handling, cleaning and preparing data.
+• Selecting and engineering features.
+• Selecting a model and tuning hyper-parameters using cross-validation.
+• The main challenges of Machine Learning, in particular underfitting and overfitting
+(the Bias/Variance tradeoff).
+• Reducing the dimensionality of the training data to fight the curse of dimensionality.
+• And of course we will go through the most common learning algorithms: Linear
+and polynomial regression, Logistic regression, k-Nearest Neighbors, Support
+Vector Machines, Decision Trees, Random Forests and Ensemble
+methods.
+Preface
+
+2. Neural Networks and Deep Learning
+• What are neural nets? What are they good for?
+• Building and training neural nets using TensorFlow.
+• The most important neural net architectures: FeedForward Neural Nets, Convolutional
+Nets, Recurrent Nets, Long Short Term Memory Nets and Autoencoders.
+• Techniques for training deep neural nets.
+• Scaling neural networks for huge datasets.
+• Reinforcement Learning.
+
+The first part is based mostly on Scikit-Learn while the second part uses TensorFlow.
+
+
+Other resources
+
+*Andrew Ng’s ML course on Coursera4 
+*Geoffrey Hinton’s course on Neural Networks and Deep Learning 
+*Scikit-Learn’s exceptional User Guide. 
+*https://www.dataquest.io/ which provides very nice interactive tutorials. 
+*http://goo.gl/GwtU3A. http://deeplearning.net/ has a good list.
+
+
+
+Conventions Used in This Book
+
+
+Using Code Examples
+
+Supplemental material (code examples, exercises, etc.) is available for download at
+https://github.com/ageron/handson-ml.
+
+
+PART I
+The Fundamentals of Machine Learning
+
+CHAPTER 1
+The Machine Learning landscape
+
+What is Machine Learning?
+
+Machine Learning is the science (and art) of programming computers so they can
+learn from data.
+
+spam filterの場合
+
+    training set = the examples that the system uses to learn
+    trainint instance(or sample) = each training example 
+    task T = to flag spam for new emails
+    experience E = training data  
+    performance measure P = accuracy
+
+
+Why use Machine Learning?
+
+1.最初に、スパムが典型的にどう見えるかを調べる。 
+特定の単語（「4U」、「クレジットカード」、「フリー」、「アメージング」など）、送信者名、メールの本文など
+
+2.次に、抽出単語の検出アルゴリズムを書きます。
+プログラムは、単語が一定の数を超えたら電子メールをスパムとみなします
+
+3.プログラムをテスト、ステップ1と2を繰り返し評価します。
+
+問題は簡単ではないので、あなたのプログラムはおそらく複雑な長いリストになる。
+リストを維持するのはかなり難しい。
+
+一方、機械学習技術に基づくスパムフィルタは自動的に学習する。
+プログラムははるかに短く、維持しやすく、より正確だろう。
+
+
+
+
+
+データが更新されるとMLアルゴリズムも更新されるので、人手介入なしに処理を自動化できる。
+
+
+
+
+機械学習は、人間が学習するのに役立ちます。
+時にはこれは予期しない相関を明らかにして、問題の理解につながります。
+大量のデータを掘り起こして見えなかったパターンを発見する事をデータマイニングと呼びます。
+
+機械学習の良い点まとめ
+
+• 多くの場合コードを簡素化し、優れたパフォーマンスを発揮する
+• 複雑な問題に対処できる
+•機械学習システムは新データに適応可能
+• 大規模データや複雑な問題が解釈できるようになる
+
+
+Types of Machine Learning systems
+
+機械学習システムには学習に種類がある。
+
+    「人間」が訓練へ介入するか否か(supervised, unsupervised, semi-supervised and reinforcement learning)
+    逐次的訓練か否か(online vs batch learning)
+    新データと既知データの単純比較か、パターン検出で予測モデル構築が必要か(instance based vs model based learning)
+
+
+Supervised/Unsupervised learning
+
+    Supervised learning
+    * Training data is labeled.
+
+
+
+    *[Classification Task] = predicting a target label (応答値はラベル)
+              *Class = Target label (spam or ham)
+    *[Regression Task] = predicting a target numeric value (応答変数は実数)
+             
+    *Specific Words(Features , Predictors, Instances, Attributes)
+       
+         
+             http://archive.ics.uci.edu/ml/datasets/Iris (UCI Machine Learning Repository)
+
+    *Important algorithms (k-Nearest Neighbors, Linear Regression, Logistic Regression, Support Vector Machines(SVMs), Decision Trees and Random Forests, Neural networks)
+
+
+    Unsupervised learning
+
+    * Training data is unlabeled. Need to learn without a teacher.
+
+    * Important algorithms
+         A. Clustering (k-means, Hierarchical cluster analysis, Expectation maximization)
+         B. Visualization and dimensionality reduction (Principal Component Analysis:PCA, Kernel PCA, LLE, t-SNE)
+         C. Anomaly detection
+         D. Association rule learning (Apriori , Eclat)
+    * Example = blog's visitor clustering
+         
+
+
+
+
+    Semi-supervised learning = using partially labeled training data
+    * Combinations of unsupervised and supervised algorithms
+    * A lot of unlabeled data + a little labeled data
+
+
+
+    * Google Photo service (clustering same persons first + supervised person recognition second)
+    * DBNs (Deep Belief Networks : DBNs) = unsupervised (pre-training) + supervised
+          
+
+            http://www.sersc.org/journals/IJHIT/vol9_no11_2016/34.pdf
+
+            
+
+
+
+    Reinforcement learning = learn by itself what is the best strategy
+
+    *agent=learning system
+    *rewards
+    *penalties=negative rewards
+    *policy=best strategy
+
+
+
+
+
+
+Batch and Online learning
+
+           * Batch training = offline training (incapable of learning incrementally)
+           * Online training = capable of learning incrementally
+           
+             
+             
+
+
+
+
+
+
+
+```
