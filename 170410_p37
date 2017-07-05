@@ -1,0 +1,286 @@
+```
+
+Working with real data
+
+Popular open data repositories
+
+    US Irvine Machine Learning Repository
+    Kaggle datasets (https://www.kaggle.com/datasets)
+
+    Amazon AWS datasets (https://aws.amazon.com/jp/public-datasets/)
+    genome related
+     1	 TCGA
+     2	ICGC 
+     3	1000 genomes 
+     4	3000 rice genomes 
+     5	GIAB 
+
+    CMU StatLib (http://lib.stat.cmu.edu/datasets/)
+
+Meta portals
+
+    http://dataportals.org/
+    http://opendatamonitor.org/
+    http://quandl.com/
+
+Others
+
+    Wikipedia's list of ML datasets (https://goo.gl/SJHN2k)
+    Quora.com question 
+    Datasets subreddit
+
+Japanese opendata websites
+
+    Data.go.jp << http://www.data.go.jp   (Japan Government :18,717 datasets at 17/4/8))
+        note that Japanese gov imitated USA  https://www.data.gov 
+    NII IDR (Yahoo!, Rakuten, Niconico, cookpad etc.)
+    Japan City Open Data Census
+
+
+Look at the big picture
+
+California Housing Prices dataset from the StatLib repository (from UCI ML repository)
+https://archive.ics.uci.edu/ml/datasets/Housing
+
+metrics (population, median income, median housing price etc.)
+block group (we call "districts" a population of 600 to 3000 people)
+
+ML project checklist from Appendix B
+There are 8 main steps:
+1. Frame the problem and look at the big picture
+2. Get the data.
+3. Explore it, gain insights.
+4. Prepare it to better expose the underlying data patterns to Machine Learning
+algorithms.
+5. Explore many different models and short-list the best ones.
+6. Fine-tune your models and combine them into a great solution.
+7. Present your solution.
+8. Launch, monitor and maintain your system.
+
+
+Frame the problem and look at the big picture
+1. Define the objective in business terms.
+2. How will your solution be used?
+3. What are the current solutions / workarounds (if any)?
+4. How should you frame this problem? (supervised/unsupervised, online/offline,
+etc.)
+5. How should performance be measured?
+6. Is the performance measure aligned with the business objective?
+7. What would be the minimum performance needed to reach the business objective?
+8. What are comparable problems? Can you reuse experience or tools?
+9. Is human expertise available?
+10. How would you solve the problem manually?
+11. List the assumptions you (or others) have made so far.
+12. Verify assumptions if possible.
+
+Get the data
+Note: Automate as much as possible so you can easily get fresh data.
+1. List the data you need and how much you need.
+2. Find and document where you can you get that data.
+3. Check how much space it will take.
+4. Check legal obligations, get authorization if necessary.
+5. Get access authorizations.
+6. Create a workspace (with enough storage space).
+7. Get the data.
+8. Convert the data to a format you can easily manipulate (without changing the
+data itself).
+9. Ensure sensitive information is deleted or protected (eg. anonymized).
+10. Check the size and type of data (time series, sample, geographical, etc.).
+11. Sample a test set, put it aside and never look at it (no data snooping!).
+
+Explore the data
+Note: try to get insights from a field expert for these steps.
+1. Create a copy of the data for exploration (sampling it down to a manageable size
+if necessary).
+2. Create a Jupyter notebook to keep a record of your data exploration.
+3. Study each attribute and its characteristics:
+• name
+• type (categorical, int/float, bounded/unbounded, text, structured, etc.)
+• % of missing values
+• noisiness and type of noise (stochastic, outliers, rounding errors, etc.)
+• possibly useful for the task?
+• type of distribution (Gaussian, uniform, logarithmic, etc.)
+4. For supervised learning tasks, identify the target attribute(s).
+5. Visualize the data.
+6. Study the correlations between attributes.
+7. Study how you would solve the problem manually.
+8. Identify the promising transformations you may want to apply.
+9. Identify extra data that would be useful (go back to “Get the data” on page 532).
+10. Document what you have learned.
+
+Prepare the data
+Notes:
+• Work on copies of the data (keep the original dataset intact).
+• Write functions for all data transformations you apply, for 4 reasons:
+—so you can easily prepare the data the next time you get a fresh dataset,
+—so you can apply these transformations in future projects,
+—to clean & prepare the test set,
+—to clean & prepare new data instances once your solution is live,
+—and to make it easy to treat your preparation choices as hyperparameters.
+1. Data cleaning:
+• Fix or remove outliers (optional).
+• Fill in missing values (eg. with zero, mean, median…) or drop their rows (or
+columns).
+2. Feature selection (optional):
+• Drop the attributes that provide no useful information for the task.
+3. Feature engineering, where appropriate:
+• Discretize continuous features.
+• Decompose features (eg. categorical, date/time, etc.).
+• Add promising transformations of features (eg. log(x), sqrt(x), x^2, etc.).
+• Aggregate features into promising new features.
+4. Feature scaling: standardize or normalize features.
+
+Short-list promising models
+Notes:
+• If the data is huge, you may want to sample smaller training sets so you can train
+many different models in a reasonable time (be aware that this penalizes complex
+models such as large neural nets or random forests).
+• Once again, try to automate these steps as much as possible.
+1. Train many quick & dirty models from different categories (eg. linear, naive
+Bayes, SVM, random forest, neural net, etc.) using standard parameters.
+2. Measure and compare their performance.
+• For each model, use N-fold cross-validation and compute the mean and standard
+deviation of the performance measure on the N folds.
+3. Analyze the most significant variables for each algorithm.
+4. Analyze the types of errors the models make.
+• What data would a human have used to avoid these errors?
+5. Quick round of feature selection and engineering.
+6. One or two more quick iterations of the 5 previous steps.
+7. Short-list the top 3-5 most promising models, preferring models that make different
+types of errors.
+
+Fine-tune the system
+Notes:
+• You will want to use as much data as possible for this step, especially as you move
+towards the end of fine-tuning.
+• As always automate what you can.
+1. Fine-tune the hyperparameters using cross-validation.
+• Treat your data transformation choices as hyperparameters, especially when
+you are not sure about them (eg. should I replace missing values with zero or
+with the median value? Or just drop the rows?).
+• Unless there are very few hyperparameter values to explore, prefer random
+search over grid search. If training is very long, you may prefer a Bayesian
+optimization approach (eg. using Gaussian process priors1).
+2. Try ensemble methods. Combining your best models will often perform better
+than running them individually.
+3. Once you are confident about your final model, measure its performance on the
+test set to estimate the generalization error.
+
+Present your solution
+1. Document what you have done.
+2. Create a nice presentation.
+• Making sure you highlight the big picture first.
+3. Explain why your solution achieves the business objective.
+4. Don’t forget to present interesting points you noticed along the way.
+• What worked and what did not.
+• List your assumptions and you system’s limitations.
+5. Ensure your key findings are communicated through beautiful visualizations or
+easy to remember statements (eg. “the median income is the number one predictor
+of housing prices”).
+
+Launch!
+1. Get your solution ready for production (eg. plug to production data inputs, write
+unit tests, etc.).
+2. Write monitoring code to check your system’s live performance at regular intervals
+and trigger alerts when it drops.
+• Beware of slow degradation too: models tend to “rot” as data evolves.
+• Measuring performance may require a human pipeline (eg. via a crowdsourcing
+service).
+• Also monitor your inputs’ quality (eg. a malfunctioning sensor sending random
+values, or another team’s output becoming stale). This is particularly
+important for online learning systems.
+3. Retrain your models on a regular basis on fresh data (automate as much as possible).
+536
+
+
+Frame the problem
+
+First question: what exactly is the business objective.
+Next question: what the current solution looks like.
+
+問題のフレーム化
+＊what algorithms you will select　アルゴリズムの選択
+＊what performance measure you will use to evaluate your model　性能評価尺度の選択　
+＊how much effort you should spend tweaking it. 微調整するためにどれだけ時間コストかけるか
+
+
+他のデータ（Signals）と一緒に、別のシステムで評価するかもしれない。
+
+Pipeline = a sequence of data processing components
+コンポーネントは通常、非同期で実行されます。各コンポーネントは大量に取得されます。
+データを処理し、結果を別のデータストアに吐き出し、しばらくしてから
+パイプライン内の次のコンポーネントがこのデータをプルして、それ自身の出力を吐き出します。
+に。 各コンポーネントはかなり自己完結しています。コンポーネント間のインタフェースは
+単にデータストアです。 これにより、システムは非常に簡単に把握できます（
+データフローグラフ）、異なるチームが異なるコンポーネントに集中することができます。 また、
+コンポーネントが故障した場合、下流のコンポーネントはしばしば実行を継続できます
+通常は（壊れたコンポーネントからの最後の出力を使用するだけで、少なくともしばらくの間）。
+
+一方、壊れたコンポーネントは、適切な場合にはしばらくの間気づかれないことがあります
+監視は実装されていません。 データが古くなってシステム全体のパフォーマンスが低下する
+
+--------------------------------------
+
+
+フレーム化
+＜教師あり、なし？＞
+→あり
+典型的な教師付き学習課題。ラベル付きの訓練の例が与えられているから
+（インスタンス出力は、地区の中央値住宅価格）。
+
+＜分類、回帰？＞
+→回帰
+多変量システムが複数の特徴を使用して予測を行うので、
+回帰の問題（地区の人口、中央値所得などを使用します）
+
+＜単変量、多変量？＞
+→単変量
+1つの特徴、1人当たりGDPに基づく様に予測された。
+univariate <==> multivariate
+
+＜バッチ、オンライン？＞
+→なし（＝単純バッチ学習）
+データの継続的な流れについて、システムはデータに迅速対応する必要はなく、データは
+記憶に収まるように十分小さい
+
+
+Select a performance measure
+
+
+次のステップでは、パフォーマンス測定値を選択します。
+回帰問題は、RMSE（Root Mean Square Error）です。 
+
+
+*Rootを計算せずにMean Square Errorを計算するときもある（ほとんどない）
+*ベクトル間の距離定義には色々ある。
+よく使われるのは、Euclid距離、Mahaｌanobis距離、など。　
+https://numerics.mathdotnet.com/distance.html
+
+===========================================
+Notation(表記)
+
+本書の表記法
+•m＝RMSEを測定するデータセット内のインスタンス数
+•x＝i番目インスタンスの特徴ベクトル
+*y＝ラベル
+*Ｘ＝全特徴ベクトルを含むmatrix
+*h=予測関数(a hypothesisと呼ばれる)
+*y-hat = h(x)
+*RMSE(X,h) = 仮説hでのcost function
+
+スカラー値や関数は、通常フォント、ベクトルや行列はboldフォント
+
+
+Check the assumptions
+
+仮定（＝仕様）のチェック
+下流のMLシステムをチェックしたら、実数でなくカテゴリ変数を使っているかもしれない。
+例えば、住宅価格でなく「高」「中」「安」のカテゴリ変数が使われているかも。
+
+＊住宅実価格→回帰タスク
+＊住宅価格カテゴリ→分類タスク
+
+と戦略が異なるのでチェックが必要。
+ここでは＜actual prices＝回帰タスク、を使う事を確認＞
+
+```
