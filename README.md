@@ -8,7 +8,7 @@ Hands-on機械学習輪読会のログ
     ＊演習形式
     ＊月一回月曜日11:00-12:00 NIG-W403
 　   ＊python with jupyter notebook (anaconda installed). 
-
+    ＊2017年1月よりスタート
 
 ==== 0. Book for Machine Learning ReadingCircle  ===========================
 
@@ -42,10 +42,5 @@ Chapter 16 Reinforcement Learning
 https://drive.google.com/file/d/0BxjNviDTeO_Lem9wcEVOdC1zeGs/view?usp=sharing
 
 
-==== 2. Schedule & Place  ==================================================
 
-＊月曜日11:00-12:00 ：Monday 11:00-12:00
-＊場所　国立遺伝学研究所W棟403号室
-＊1カ月に1回： Once per month
-＊2017年1月よりスタート
 ```
