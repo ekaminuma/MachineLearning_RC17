@@ -1,0 +1,71 @@
+```
+
+pp.26 
+
+
+＜Main challenges of Machine Learning＞
+
+
+*Insufficient quantity of training data
+訓練データ量によって精度が変わる(Fig.1-20)。
+
+*Non representative training data
+＜sampling bias＞
+
+
+*Poor quality data
+<outlier>
+outlierを含むなら、単純に捨てる(Simply discard outliers).
+<missing features>
+訓練データから除くか、filling missing values(e.g. genotype imputation)
+
+*Irrelevant features
+
+特徴量の選択が大事
+<feature selection>
+<feature extraction>
+
+
+*Overfitting the training data [過剰適合]
+学習データに過度に適合してしまい、テストデータで精度が落ちる。
+
+ref. from http://www.frank-dieterle.de/phd/2_8_1.html
+
+「overfitting model」の画像検索結果
+
+
+ref. http://stats.stackexchange.com/questions/192007/what-measures-you-look-at-the-determine-over-fitting-in-linear-regression/192021
+
+*Underfitting the training data [未適合]
+学習データに対して、モデルが単純すぎる場合。
+
+*Stepping back
+
+
+pp.33
+＜Testing and validating＞
+
+＊データを2つに分割(→Training set, Test set)
+Training set→ use training dataset to train your model
+Test set → testing your model using test dataset
+
+Generalization error
+
+Training error=low, Generalization error=high(your model overfitting the training data)
+
+
+*Percentage for individual datasets (80%［→90%］ for trainig, 20%[→10%] for testing)
+
+Validation set→ training multiple models and testing. (→cross-validation　交差検証)
+ref. (https://sites.google.com/a/nig.ac.jp/bioinfotraining15/shi-xingrogu/kaminuma/150803)
+
+No Free Lunch Theorem(ノーフリーランチ定理) by David H. Wolpert & William G. Macready 
+全てのパターンの評価関数に使える万能なアルゴリズムは存在しない。
+→問題の種類毎に、最適なアルゴリズムが異なる。
+
+image from http://photos1.blogger.com/blogger/1699/2130/1600/Nflt.png
+
+
+
+
+```
