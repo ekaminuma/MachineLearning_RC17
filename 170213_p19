@@ -1,0 +1,191 @@
+```
+#今回からプログラミングのログを掲載して下さい。
+
+Instance-based vs Model-based learning
+
+* Instance-based learning
+    a measure of similarityを使ったe-mailのspam判定 (Fig.1-15)
+* Model-based learning
++予測にモデル化を利用。
++例：Table1-1のDoes money make people happier?データ
+　　Fig.1-17でデータをプロットすると、trendがある様に見える。
+　　またデータはnoisy(例えば部分的にランダム)だが、
+　　線形で比例して増加しているか？
+　　↓
+　　線形関数としてモデル化(Eq.1-1 A Simple Linear Model)
++モデルを使う時にθ0とθ1のパラメータを定義する必要がある。
++モデルの性能評価方法
+　(1) utility function(or fitness function)＝どれくらいモデルが良いかを尺度化    
+   (2) cost function どれくらいモデルが悪いかの尺度化
+線形回帰問題では、
+コスト関数は線形モデル予測と訓練例との距離を尺度化、距離を最小化する。
++Training model
+線形モデルをデータに一番よくフィットさせるようなパラメータを見つけること。
+アルゴリズムでは、最適値としてθ0=4.85, θ1=4.91x10^-5となる(Fig.1-19)。
++予測の実行＝モデルにデータを入れる。
+4 . 85 + 22, 587 × 4 . 91 × 10−5 = 5 . 96
+
+
+＜使い方＞
+
+(1) anaconda install in windows
+
+(2) $ jupyter notebook
+
+(3) web access to http://localhost:8888/ (jupyter notebookの起動)
+
+
+＜著者コード＞
+https://github.com/ageron/handson-ml/blob/master/01_the_machine_learning_landscape.ipynb
+
+
+scriptで気を付ける事。
+figureの保存ディレクトリ変更（currentのみ）
+
+---------------------------------------
+
+PROJECT_ROOT_DIR = "."
+
+def save_fig(fig_id, tight_layout=True):
+    path = os.path.join(PROJECT_ROOT_DIR, fig_id + ".png")
+    print("Saving figure", fig_id)
+    if tight_layout:
+        plt.tight_layout()
+    plt.savefig(path, format='png', dpi=300)
+
+----------------------------------
+
+import matplotlib
+import matplotlib.pyplot as plt
+import numpy as np
+import pandas as pd
+import sklearn
+import os
+os.chdir("c:/linux/HandsOnML")
+oecd_bli = pd.read_csv("oecd_bli_2015.csv", thousands=',')
+gdp_per_capita = pd.read_csv("gdp_per_capita.csv",thousands=',',delimiter='\t',encoding='latin1', na_values="n/a")
+
+oecd_bli = oecd_bli[oecd_bli["INEQUALITY"]=="TOT"]
+oecd_bli = oecd_bli.pivot(index="Country", columns="Indicator", values="Value")
+oecd_bli.head(2)
+
+oecd_bli["Life satisfaction"].head()
+
+Country
+Australia    7.3
+Austria      6.9
+Belgium      6.9
+Brazil       7.0
+Canada       7.3
+Name: Life satisfaction, dtype: float64
+
+gdp_per_capita.rename(columns={"2015": "GDP per capita"}, inplace=True)
+gdp_per_capita.set_index("Country", inplace=True)
+gdp_per_capita.head(2)
+
+full_country_stats = pd.merge(left=oecd_bli, right=gdp_per_capita, left_index=True, right_index=True)
+full_country_stats.sort_values(by="GDP per capita", inplace="True")
+full_country_stats
+
+full_country_stats[["GDP per capita", 'Life satisfaction']].loc["United States"]
+
+remove_indices = [0, 1, 6, 8, 33, 34, 35]
+keep_indices = list(set(range(36)) - set(remove_indices))
+
+sample_data = full_country_stats[["GDP per capita", 'Life satisfaction']].iloc[keep_indices]
+missing_data = full_country_stats[["GDP per capita", 'Life satisfaction']].iloc[remove_indices]
+
+-------------------
+sample_data.plot(kind='scatter', x="GDP per capita", y='Life satisfaction', figsize=(5,3))
+plt.axis([0, 60000, 0, 10])
+position_text = {
+    "Hungary": (5000, 1),
+    "Korea": (18000, 1.7),
+    "France": (29000, 2.4),
+    "Australia": (40000, 3.0),
+    "United States": (52000, 3.8),
+}
+
+for country, pos_text in position_text.items():
+    pos_data_x, pos_data_y = sample_data.loc[country]
+    country = "U.S." if country == "United States" else country
+    plt.annotate(country, xy=(pos_data_x, pos_data_y), xytext=pos_text,
+            arrowprops=dict(facecolor='black', width=0.5, shrink=0.1, headwidth=5))
+    plt.plot(pos_data_x, pos_data_y, "ro")
+save_fig('money_happy_scatterplot')
+plt.show()
+-----------------------
+
+sample_data.loc[list(position_text.keys())]
+
+import numpy as np
+
+sample_data.plot(kind='scatter', x="GDP per capita", y='Life satisfaction', figsize=(5,3))
+plt.axis([0, 60000, 0, 10])
+X=np.linspace(0, 60000, 1000)
+plt.plot(X, 2*X/100000, "r")
+plt.text(40000, 2.7, r"$\theta_0 = 0$", fontsize=14, color="r")
+plt.text(40000, 1.8, r"$\theta_1 = 2 \times 10^{-5}$", fontsize=14, color="r")
+plt.plot(X, 8 - 5*X/100000, "g")
+plt.text(5000, 9.1, r"$\theta_0 = 8$", fontsize=14, color="g")
+plt.text(5000, 8.2, r"$\theta_1 = -5 \times 10^{-5}$", fontsize=14, color="g")
+plt.plot(X, 4 + 5*X/100000, "b")
+plt.text(5000, 3.5, r"$\theta_0 = 4$", fontsize=14, color="b")
+plt.text(5000, 2.6, r"$\theta_1 = 5 \times 10^{-5}$", fontsize=14, color="b")
+save_fig('tweaking_model_params_plot')
+plt.show()
+
+＜線形回帰モデルのparameter fitting＞
+
+from sklearn import linear_model
+lin1 = linear_model.LinearRegression()
+Xsample = np.c_[sample_data["GDP per capita"]]
+ysample = np.c_[sample_data["Life satisfaction"]]
+lin1.fit(Xsample, ysample)
+t0, t1 = lin1.intercept_[0], lin1.coef_[0][0]
+t0, t1
+
+(4.8530528002664362, 4.9115445891584838e-05)
+
+
+sample_data.plot(kind='scatter', x="GDP per capita", y='Life satisfaction', figsize=(5,3))
+plt.axis([0, 60000, 0, 10])
+X=np.linspace(0, 60000, 1000)
+plt.plot(X, t0 + t1*X, "b")
+plt.text(5000, 3.1, r"$\theta_0 = 4.85$", fontsize=14, color="b")
+plt.text(5000, 2.2, r"$\theta_1 = 4.91 \times 10^{-5}$", fontsize=14, color="b")
+save_fig('best_fit_model_plot')
+plt.show()
+
+
+# Make a prediction for cyprus
+
+cyprus_gdp_per_capita = gdp_per_capita.loc["Cyprus"]["GDP per capita"]
+print(cyprus_gdp_per_capita)
+cyprus_predicted_life_satisfaction = lin1.predict(cyprus_gdp_per_capita)[0][0]
+cyprus_predicted_life_satisfaction
+
+22587.49
+
+Out[28]:
+
+5.9624474431881502
+
+
+
+sample_data.plot(kind='scatter', x="GDP per capita", y='Life satisfaction', figsize=(5,3), s=1)
+X=np.linspace(0, 60000, 1000)
+plt.plot(X, t0 + t1*X, "b")
+plt.axis([0, 60000, 0, 10])
+plt.text(5000, 7.5, r"$\theta_0 = 4.85$", fontsize=14, color="b")
+plt.text(5000, 6.6, r"$\theta_1 = 4.91 \times 10^{-5}$", fontsize=14, color="b")
+plt.plot([cyprus_gdp_per_capita, cyprus_gdp_per_capita], [0, cyprus_predicted_life_satisfaction], "r--")
+plt.text(25000, 5.0, r"Prediction = 5.96", fontsize=14, color="b")
+plt.plot(cyprus_gdp_per_capita, cyprus_predicted_life_satisfaction, "ro")
+save_fig('cyprus_prediction_plot')
+plt.show()
+
+
+
+
+```
