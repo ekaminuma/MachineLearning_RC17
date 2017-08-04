@@ -43,4 +43,18 @@ https://drive.google.com/file/d/0BxjNviDTeO_Lem9wcEVOdC1zeGs/view?usp=sharing
 
 
 
+＜実行環境の準備(windows)＞
+
+(1) anaconda install in windows
+(2) メニュからanaconda prompt起動
+(2) $ jupyter notebook
+(3) web access to http://localhost:8888/ (web browser上でjupyter notebookが起動される)
+(4) web browserでプログラムを書いたら.ipynbで保存。ファイルをgithub.comにアップロードすると実行結果が視覚化される。
+---------------------------------------------
+(5) anaconda promptで pip install tensorflowでインストールされる(ローカル環境)
+
+
+＜著者コード＞
+https://github.com/ageron/handson-ml/blob/master/01_the_machine_learning_landscape.ipynb
+
 ```
