@@ -51,7 +51,7 @@ https://drive.google.com/file/d/0BxjNviDTeO_Lem9wcEVOdC1zeGs/view?usp=sharing
 (3) web access to http://localhost:8888/ (web browser上でjupyter notebookが起動される)
 (4) web browserでプログラムを書いたら.ipynbで保存。ファイルをgithub.comにアップロードすると実行結果が視覚化される。
 ---------------------------------------------
-(5) anaconda promptで pip install tensorflowでインストールされる(ローカル環境)
+(5) anaconda prompt上で $ pip install tensorflow (ローカルインストール用。スパコンGPU環境での利用方法は後述)
 
 
 ＜著者コード＞
