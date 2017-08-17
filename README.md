@@ -67,7 +67,7 @@ https://github.com/ageron/handson-ml/blob/master/01_the_machine_learning_landsca
 |2回目  | [2017/2/13](170213_p19.md)  11:00-12:00 || 1 | 19-26　| Types of Machine Learning systems   |
 |3回目  | [2017/3/13](170313_p26.md)  11:00-12:00 || 1 | 26-36　| Main challenges of machine Learning |
 |4回目  | [2017/4/10](170410_p37.md)  11:00-12:00 || 1 | 37-44　| End-to-end Machine Learning project  |
-|5回目  | [2017/5/8](170508_p49.md)  11:00-12:00 |[p49.ipynb](170508_p49.ipynb),[p53.ipynb](170508_p53.ipynb) | 2  | 49-57　| Get the data  |
-|6回目  | [2017/6/5](170605.md)  11:00-12:00 || 2  | 57-67 | Visualizing geographical data |
+|5回目  | [2017/5/8](170508_p49.md)  11:00-12:00 |[p49.ipynb](170508_p49.ipynb), [p53.ipynb](170508_p53.ipynb) | 2  | 49-57　| Get the data  |
+|6回目  | [2017/6/5](170605.md)  11:00-12:00 |[p57.ipynb](170605_p57.ipynb)| 2  | 57-67 | Visualizing geographical data |
 |7回目  | [2017/7/3](170703.md)  11:00-12:00 || 2 | 67-69　| Handling text and categorical attributes  |
 |8回目  | [2017/7/25](170725.md)(火)  11:00-12:00 || 2 | 69-81　| Custom transformers  |
