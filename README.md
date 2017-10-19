@@ -63,7 +63,7 @@ https://github.com/ageron/handson-ml/blob/master/01_the_machine_learning_landsca
 
 開催日
 
-|    | 日時  | ipynb |　章  |ページ |　内容  | 
+|    | 日時  | md,ipynb |　章  |ページ |　内容  | 
 |---|---|---|---|---|---| 
 |1回目  | [2017/1/30](170130_p1.md)  11:00-12:00 |[p1.md](170130_p1.md)| 1 | 1-19　| What is Machine learning?  |
 |2回目  | [2017/2/13](170213_p19.md)  11:00-12:00 |[p19.md](170213_p19.md)| 1 | 19-26　| Types of Machine Learning systems   |
