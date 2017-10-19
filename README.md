@@ -65,10 +65,10 @@ https://github.com/ageron/handson-ml/blob/master/01_the_machine_learning_landsca
 
 |    | 日時  | ipynb |　章  |ページ |　内容  | 
 |---|---|---|---|---|---| 
-|1回目  | [2017/1/30](170130_p1.md)  11:00-12:00 |[p1.ipynb](17130_p1.ipynb)| 1 | 1-19　| What is Machine learning?  |
-|2回目  | [2017/2/13](170213_p19.md)  11:00-12:00 |[p57.ipynb](170213_p19.ipynb)| 1 | 19-26　| Types of Machine Learning systems   |
-|3回目  | [2017/3/13](170313_p26.md)  11:00-12:00 |[p26.ipynb](170313_p26.ipynb)| 1 | 26-36　| Main challenges of machine Learning |
-|4回目  | [2017/4/10](170410_p37.md)  11:00-12:00 |[p37.ipynb](170410_p37.ipynb)| 1 | 37-44　| End-to-end Machine Learning project  |
+|1回目  | [2017/1/30](170130_p1.md)  11:00-12:00 |[p1.md](17130_p1.md)| 1 | 1-19　| What is Machine learning?  |
+|2回目  | [2017/2/13](170213_p19.md)  11:00-12:00 |[p19.md](170213_p19.md)| 1 | 19-26　| Types of Machine Learning systems   |
+|3回目  | [2017/3/13](170313_p26.md)  11:00-12:00 |[p26.md](170313_p26.md)| 1 | 26-36　| Main challenges of machine Learning |
+|4回目  | [2017/4/10](170410_p37.md)  11:00-12:00 |[p37.md](170410_p37.md)| 1 | 37-44　| End-to-end Machine Learning project  |
 |5回目  | [2017/5/8](170508_p49.md)  11:00-12:00 |[p49.ipynb](170508_p49.ipynb), [p53.ipynb](170508_p53.ipynb) | 2  | 49-57　| Get the data  |
 |6回目  | [2017/6/5](170605.md)  11:00-12:00 |[p57.ipynb](170605_p57.ipynb)| 2  | 57-67 | Visualizing geographical data |
 |7回目  | [2017/7/3](170703.md)  11:00-12:00 |[p67.ipynb](170703_p67.ipynb)| 2 | 67-69　| Handling text and categorical attributes  |
