@@ -71,8 +71,8 @@ https://github.com/ageron/handson-ml/blob/master/01_the_machine_learning_landsca
 |4回目  | [2017/4/10](170410_p37.md)  11:00-12:00 || 1 | 37-44　| End-to-end Machine Learning project  |
 |5回目  | [2017/5/8](170508_p49.md)  11:00-12:00 |[p49.ipynb](170508_p49.ipynb), [p53.ipynb](170508_p53.ipynb) | 2  | 49-57　| Get the data  |
 |6回目  | [2017/6/5](170605.md)  11:00-12:00 |[p57.ipynb](170605_p57.ipynb)| 2  | 57-67 | Visualizing geographical data |
-|7回目  | [2017/7/3](170703.md)  11:00-12:00 || 2 | 67-69　| Handling text and categorical attributes  |
+|7回目  | [2017/7/3](170703.md)  11:00-12:00 |[p67.ipynb](170703_p67.ipynb)| 2 | 67-69　| Handling text and categorical attributes  |
 |8回目  | [2017/7/25](170725.md)(火)  11:00-12:00 || 2 | 69-81　| Custom transformers  |
-|9回目  | [2017/9/4](170904.md)  11:00-12:00 || 3 | 83-91　| Classification, MNIST  |
-|10回目  | [2017/10/2](170904.md)  11:00-12:00 || 3 | 91-110　| Precision/Recall tradeoff  |
+|9回目  | [2017/9/4](170904.md)  11:00-12:00 |[p83.ipynb](170904_p83.ipynb)| 3 | 83-91　| Classification, MNIST  |
+|10回目  | [2017/10/2](170904.md)  11:00-12:00 |[p91.ipynb](171002_p91.ipynb)| 3 | 91-110　| Precision/Recall tradeoff  |
 |11回目  | [2017/11/6](170904.md)  11:00-12:00 || 9 | 241-　| Tensorflow, Tensorboard  |
