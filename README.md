@@ -71,4 +71,6 @@ https://github.com/ageron/handson-ml/blob/master/01_the_machine_learning_landsca
 |6回目  | [2017/6/5](170605.md)  11:00-12:00 |[p57.ipynb](170605_p57.ipynb)| 2  | 57-67 | Visualizing geographical data |
 |7回目  | [2017/7/3](170703.md)  11:00-12:00 || 2 | 67-69　| Handling text and categorical attributes  |
 |8回目  | [2017/7/25](170725.md)(火)  11:00-12:00 || 2 | 69-81　| Custom transformers  |
-|9回目  | [2017/9/4](170904.md)  11:00-12:00 || 3 | 83-　| Classification, MNIST  |
+|9回目  | [2017/9/4](170904.md)  11:00-12:00 || 3 | 83-91　| Classification, MNIST  |
+|10回目  | [2017/10/2](170904.md)  11:00-12:00 || 3 | 91-110　| Precision/Recall tradeoff  |
+|11回目  | [2017/11/6](170904.md)  11:00-12:00 || 9 | 241-　| Tensorflow, Tensorboard  |
