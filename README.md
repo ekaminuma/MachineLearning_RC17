@@ -56,14 +56,13 @@ Iでの準備
 IIでの準備
 (5) anaconda prompt上で $ pip install tensorflow (ローカルインストール用。スパコンGPU環境での利用方法は後述)
 
-
 ＜著者コード＞
-[https://github.com/ageron/handson-ml/blob/master/01_the_machine_learning_landscape.ipynb](https://github.com/ageron/handson-ml/blob/master/01_the_machine_learning_landscape.ipynb)
+```
+[https://github.com/ageron/handson-ml/](https://github.com/ageron/handson-ml)
 
 ```
-
 開催日
-
+```
 |    | 日時  | md,ipynb |　章  |ページ |　内容  | 
 |---|---|---|---|---|---| 
 |1回目  | [2017/1/30](170130_p1.md)  11:00-12:00 |[p1.md](170130_p1.md)| 1 | 1-19　| What is Machine learning?  |
