@@ -19,7 +19,7 @@ Release Date: March 2017
 
 ==== 1. Book Information  ==================================================
 
-＊Book title: 「Hands-On Machine Learning with Scikit-Learn and TensorFlow」　
+＊Book title: 「[Hands-On Machine Learning with Scikit-Learn and TensorFlow](http://shop.oreilly.com/product/0636920052289.do)」　
 Table of Contents
 Chapter 1 The Machine Learning landscape
 Chapter 2 End-to-end Machine Learning Project
@@ -57,7 +57,7 @@ IIでの準備
 
 
 ＜著者コード＞
-https://github.com/ageron/handson-ml/blob/master/01_the_machine_learning_landscape.ipynb
+[https://github.com/ageron/handson-ml/blob/master/01_the_machine_learning_landscape.ipynb](https://github.com/ageron/handson-ml/blob/master/01_the_machine_learning_landscape.ipynb)
 
 ```
 
