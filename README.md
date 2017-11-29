@@ -1,6 +1,8 @@
 # Machine Learning ReadingCircle
 Hands-on形式の初心者向け深層学習輪読会のログ 
 
+＊Book site: 「[Hands-On Machine Learning with Scikit-Learn and TensorFlow](http://shop.oreilly.com/product/0636920052289.do)」　
+
 ```
 初心者向け深層学習輪読演習を行います(NIG遺伝研大量遺伝　神沼)
 
@@ -16,9 +18,7 @@ BOOK TITLE: "Hands-On Machine Learning with Scikit-Learn and TensorFlow"
 AUTHOR : Aurélien Géron
 Publisher: O'Reilly Media
 Release Date: March 2017
-```
-＊Book site: 「[Hands-On Machine Learning with Scikit-Learn and TensorFlow](http://shop.oreilly.com/product/0636920052289.do)」　
-```
+
 ==== 2. Book Information  ==================================================
 Table of Contents
 Chapter 1 The Machine Learning landscape
@@ -41,7 +41,6 @@ Chapter 16 Reinforcement Learning
 ＊Download a pdf from the following Google drive
 https://drive.google.com/file/d/0BxjNviDTeO_Lem9wcEVOdC1zeGs/view?usp=sharing
 
-
 ==== 2. How to Install Tensorflow  ==================================================
 ＜実行環境の準備(windows)＞
 
@@ -56,7 +55,7 @@ IIでの準備
 (5) anaconda prompt上で $ pip install tensorflow (ローカルインストール用。スパコンGPU環境での利用方法は後述)
 
 ==== 3. Author Original Exercise Codes  ==================================================
-＜著者コード＞
+著者オリジナルコード
 ```
 [https://github.com/ageron/handson-ml/](https://github.com/ageron/handson-ml)
 
