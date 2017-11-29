@@ -42,7 +42,7 @@ Chapter 16 Reinforcement Learning
 https://drive.google.com/file/d/0BxjNviDTeO_Lem9wcEVOdC1zeGs/view?usp=sharing
 
 ==== 2. How to Install Tensorflow  ==================================================
-＜実行環境の準備(windows)＞
+実行環境の準備(windows)
 
 Iでの準備
 (1) anaconda install in windows
@@ -60,7 +60,7 @@ IIでの準備
 [https://github.com/ageron/handson-ml/](https://github.com/ageron/handson-ml)
 
 ```
-
+※本に掲載されていないコードが多数掲載されています
 ==== 4. Reading Circle Schedule  ==================================================
 開催日
 ```
