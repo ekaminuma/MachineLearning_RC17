@@ -2,7 +2,7 @@
 Hands-on機械学習輪読会のログ 
 
 ```
-初心者向け機械学習輪読演習を行います(NIG遺伝研大量遺伝　神沼)
+初心者向け深層学習輪読演習を行います(NIG遺伝研大量遺伝　神沼)
 
     ＊ノートパソコン必携
     ＊演習形式
@@ -74,5 +74,6 @@ https://github.com/ageron/handson-ml/blob/master/01_the_machine_learning_landsca
 |7回目  | [2017/7/3](170703.md)  11:00-12:00 |[p67.ipynb](170703_p67.ipynb)| 2 | 67-69　| Handling text and categorical attributes  |
 |8回目  | [2017/7/25](170725.md)(火)  11:00-12:00 || 2 | 69-81　| Custom transformers  |
 |9回目  | [2017/9/4](170904.md)  11:00-12:00 |[p83.ipynb](170904_p83.ipynb)| 3 | 83-91　| Classification, MNIST  |
-|10回目  | [2017/10/2](170904.md)  11:00-12:00 |[p91.ipynb](171002_p91.ipynb)| 3 | 91-110　| Precision/Recall tradeoff  |
-|11回目  | [2017/11/6](170904.md)  11:00-12:00 || 9 | 241-　| Tensorflow, Tensorboard  |
+|10回目  | [2017/10/2](171002.md)  11:00-12:00 |[p91.ipynb](171002_p91.ipynb)| 3 | 91-110　| Precision/Recall tradeoff  |
+|11回目  | [2017/11/6](171106.md)  11:00-12:00 || 9 | 241-253　| Tensorflow  |
+|12回目  | [2017/12/7](171207.md)  11:00-12:00 || 9 | 254-　| Tensorboard  |
