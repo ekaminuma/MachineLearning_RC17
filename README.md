@@ -21,6 +21,10 @@ Release Date: March 2017
 ```
 ＊Book title: 「[Hands-On Machine Learning with Scikit-Learn and TensorFlow](http://shop.oreilly.com/product/0636920052289.do)」　
 ```
+Author: Aurélien Géron
+Publisher: O'Reilly Media
+Release Date: March 2017
+
 Table of Contents
 Chapter 1 The Machine Learning landscape
 Chapter 2 End-to-end Machine Learning Project
