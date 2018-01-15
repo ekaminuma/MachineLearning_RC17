@@ -76,7 +76,7 @@ IIでの準備
 |6回目  | [2017/6/5](170605_p57.md)  11:00-12:00 |[p57.ipynb](170605_p57.ipynb)| 2  | 57-67 | Visualizing geographical data |
 |7回目  | [2017/7/3](170703_p67.md)  11:00-12:00 |[p67.ipynb](170703_p67.ipynb)| 2 | 67-69　| Handling text and categorical attributes  |
 |8回目  | [2017/7/25](170725_p73.md)(火)  11:00-12:00 || 2 | 69-81　| Custom transformers  |
-|9回目  | [2017/9/4](170904.md)  11:00-12:00 |[p83.ipynb](170904_p83.ipynb)| 3 | 83-91　| Classification, MNIST  |
+|9回目  | [2017/9/4](170904_p83.md)  11:00-12:00 |[p83.ipynb](170904_p83.ipynb)| 3 | 83-91　| Classification, MNIST  |
 |10回目  | [2017/10/2](171002.md)  11:00-12:00 |[p91.ipynb](171002_p91.ipynb)| 3 | 91-110　| Precision/Recall tradeoff  |
 |11回目  | [2017/11/20](171120.md)  11:00-12:00 |[p241.ipynb](171106_p241.ipynb)| 9 | 241-253　| Tensorflow  |
 |12回目  | [2017/12/22](171222.md)  11:00-12:00 |[p254.ipynb](171222_p254.ipynb)| 9 | 254-　| Tensorboard  |
