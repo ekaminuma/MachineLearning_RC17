@@ -80,5 +80,5 @@ IIでの準備
 |10回目  | [2017/10/2](171002_p91.ipynb)  11:00-12:00 |[p91.ipynb](171002_p91.ipynb)| 3 | 91-110　| Precision/Recall tradeoff  |
 |11回目  | [2017/11/6](171106_p241.md)  11:00-12:00 |[p241.ipynb](171106_p241.ipynb)| 9 | 241-253　| Tensorflow  |
 |12回目  | [2017/12/22](171222_p254.ipynb)  11:00-12:00 |[p254.ipynb](171222_p254.ipynb)| 9 | 254-　| Tensorboard  |
-|13回目  | [2018/1/31](180131_AUX_CH3.ipynb)  11:00-12:00 |[180131_AUX_CH3.ipynb](180131_AUX_CH3.ipynb)| Aux.3 | 39-82　| Tensorboard  |
-|14回目  | [2018/2/13](180213_AUX_CH4.ipynb)  11:00-12:00 |[180213_AUX_CH4.ipynb](180213_AUX_CH4.ipynb)| Aux.4 | 83-122　| Tensorboard  |
+|13回目  | [2018/1/31](180131_AUX_CH3.ipynb)  11:00-12:00 |[180131_AUX_CH3.ipynb](180131_AUX_CH3.ipynb)| Aux.3 | 39-82　| ニューラルネットワーク |
+|14回目  | [2018/2/13](180213_AUX_CH4.ipynb)  11:00-12:00 |[180213_AUX_CH4.ipynb](180213_AUX_CH4.ipynb)| Aux.4 | 83-122　| ニューラルネットワークの学習 |
