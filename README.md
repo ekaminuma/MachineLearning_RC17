@@ -66,6 +66,11 @@ IIでの準備
 開催日
 月一回で開催しています。
 ```
+2018年1月31日分から、補助本を使います。
+日本語補助本(ゼロから作るディープラーニング)
+ - [https://github.com/oreilly-japan/deep-learning-from-scratch](https://github.com/oreilly-japan/deep-learning-from-scratch)
+
+
 |    | 日時  | md,ipynb |　章  |ページ |　内容  | 
 |---|---|---|---|---|---| 
 |1回目  | [2017/1/30](170130_p1.md)  11:00-12:00 |[p1.md](170130_p1.md)| 1 | 1-19　| What is Machine learning?  |
