@@ -1,0 +1,19 @@
+digraph G {
+
+Python [shape=box]
+Torch
+
+Chainer -> "Chainer v2"
+Chainer -> ChainerMN
+
+Python -> PyTorch
+Torch -> PyTorch
+Chainer -> PyTorch
+
+PyTorch -> PyTorChainer
+"Chainer v2" -> PyTorChainer
+ChainerMN -> PyTorChainer
+
+FIG 5_1 [shape=plaintext]
+
+}
